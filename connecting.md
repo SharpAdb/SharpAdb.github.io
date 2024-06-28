@@ -13,7 +13,7 @@ If you started the server manually, no action is required
 If you are using an emulator, you need to know the ip and port to connect. Example for [Nox emulator](https://en.bignox.com/) it is `127.0.0.1:62001`
 ```csharp
 AdbClient client = new AdbClient();
-await client.ConnectAsync("127.0.0.1", 62001);
+string result = await client.ConnectAsync("127.0.0.1", 62001);
 ```
 
 ## Connecting to a real device via a USB cable

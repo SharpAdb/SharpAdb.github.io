@@ -6,4 +6,5 @@
     - [Installation](installation)
     - [Connecting to device](connecting)
     - [Working with lib](working)
-- 
+- Reference
+    - [Screen automation](screen)

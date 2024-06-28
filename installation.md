@@ -5,6 +5,9 @@ If you're using Visual Studio, you can run the following command in the [Package
 ```powershell
 PM> Install-Package AdvancedSharpAdbClient
 ```
+
+!> You also need the [Platform Tools](https://developer.android.com/tools/releases/platform-tools), specifically adb.exe, to run the application.
+
 ## From main branch
 You can install the actual version which is in the [main](https://github.com/SharpAdb/AdvancedSharpAdbClient) branch.
 If you're using Visual Studio, you can run the following command in the [Package Manager Console](http://docs.nuget.org/consume/package-manager-console):
