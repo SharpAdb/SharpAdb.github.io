@@ -9,3 +9,5 @@
 - Reference
     - [Screen automation](screen)
     - [Device commands](device)
+- Tutorials
+    - [Automate multiple Nox emulators](nox)
