@@ -1,0 +1,13 @@
+- About
+    - [Introduction](introduction)
+    - [Consulting and Support](support)
+    - [Licence](licence)
+- Getting started
+    - [Installation](installation)
+    - [Connecting to device](connecting)
+    - [Working with lib](working)
+- Reference
+    - [Screen automation](screen)
+    - [Device commands](device)
+- Tutorials
+    - [Automate multiple Nox emulators](nox)
