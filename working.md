@@ -10,6 +10,7 @@ DeviceData device = devices.FirstOrDefault();
 
 Next, you can use this device to execute commands, for example, to capture a screenshot:
 ```csharp
+....
 Framebuffer frameBuffer = await client.GetFrameBufferAsync(device);
 Bitmap screenshot = frameBuffer.ToImage();
 ```

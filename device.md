@@ -5,7 +5,7 @@
 You can use several ways to install and uninstall applications
 
 #### Using PackageManager
-You can use `InstallPackageAsync` and `UninstallPackageAsync` methods from `PackageManager` to install and uninstall apps:
+You can use [`InstallPackageAsync`](https://github.com/SharpAdb/AdvancedSharpAdbClient/blob/main/AdvancedSharpAdbClient/DeviceCommands/PackageManager.cs#L156) and [`UninstallPackageAsync`](https://github.com/SharpAdb/AdvancedSharpAdbClient/blob/main/AdvancedSharpAdbClient/DeviceCommands/PackageManager.cs#L478) methods from [`PackageManager`](https://github.com/SharpAdb/AdvancedSharpAdbClient/blob/main/AdvancedSharpAdbClient/DeviceCommands/PackageManager.cs#L18) to install and uninstall apps:
 ```csharp
 ....
 PackageManager manager = new PackageManager(client, device);
@@ -16,7 +16,7 @@ await manager.UninstallPackageAsync("com.android.app");
 ```
 
 #### Using AdbClient
-Or you can use `InstallAsync` and `UninstallAsync` methods from `AdbClient` to install and uninstall apps:
+Or you can use [`InstallAsync`](https://github.com/SharpAdb/AdvancedSharpAdbClient/blob/main/AdvancedSharpAdbClient/AdbClient.cs#L687) and [`UninstallAsync`](https://github.com/SharpAdb/AdvancedSharpAdbClient/blob/main/AdvancedSharpAdbClient/AdbClient.cs#L1084) methods from [`AdbClient`](https://github.com/SharpAdb/AdvancedSharpAdbClient/blob/main/AdvancedSharpAdbClient/AdbClient.cs#L33) to install and uninstall apps:
 ```csharp
 ....
 using (FileStream stream = File.OpenRead("Application.apk"))
@@ -29,7 +29,7 @@ using (FileStream stream = File.OpenRead("Application.apk"))
 ```
 
 #### Install multiple applications using PackageManager
-To install multiple packages you need to use `InstallMultiplePackageAsync` method from `PackageManager`:
+To install multiple packages you need to use [`InstallMultiplePackageAsync`](https://github.com/SharpAdb/AdvancedSharpAdbClient/blob/main/AdvancedSharpAdbClient/DeviceCommands/PackageManager.cs#L219) method from [`PackageManager`](https://github.com/SharpAdb/AdvancedSharpAdbClient/blob/main/AdvancedSharpAdbClient/DeviceCommands/PackageManager.cs#L18):
 ```csharp
 ....
 PackageManager manager = new PackageManager(client, device);
@@ -40,7 +40,7 @@ await manager.InstallMultiplePackageAsync(new[] { @"C:\split_3.apk", @"C:\split_
 ```
 
 #### Install multiple applications using AdbClient
-Or you can use `InstallMultipleAsync` from `AdbClient` to install multiple applications:
+Or you can use [`InstallMultipleAsync`](https://github.com/SharpAdb/AdvancedSharpAdbClient/blob/main/AdvancedSharpAdbClient/AdbClient.cs#L756) from [`AdbClient`](https://github.com/SharpAdb/AdvancedSharpAdbClient/blob/main/AdvancedSharpAdbClient/AdbClient.cs#L33) to install multiple applications:
 ```csharp
 ....
 // Install split app whith base app
@@ -54,7 +54,7 @@ await client.InstallMultipleAsync(device, new[] { File.OpenRead("split_3.apk"), 
 
 `AdvancedSharpAdbClient` uses [monkeyrunner](https://developer.android.com/studio/test/monkeyrunner) to start and `force-stop` to stop applications.
 
-You can use `StartAppAsync` and `StopAppAsync` from `AdbClient` to start and stop applications:
+You can use [`StartAppAsync`](https://github.com/SharpAdb/AdvancedSharpAdbClient/blob/main/AdvancedSharpAdbClient/DeviceCommands/DeviceClient.cs#L428) and [`StopAppAsync`](https://github.com/SharpAdb/AdvancedSharpAdbClient/blob/main/AdvancedSharpAdbClient/DeviceCommands/DeviceClient.cs#L434) from [`AdbClient`](https://github.com/SharpAdb/AdvancedSharpAdbClient/blob/main/AdvancedSharpAdbClient/AdbClient.cs#L33) to start and stop applications:
 ```csharp
 ....
 // Start app 
@@ -63,7 +63,7 @@ await client.StartAppAsync(device, "com.android.app");
 await client.StopAppAsync(device, "com.android.app");
 ```
 
-To check app status use `GetAppStatusAsync` from `AdbClient` or `IsAppRunningAsync` and `IsAppInForegroundAsync` from `DeviceClient`:
+To check app status use [`GetAppStatusAsync`](https://github.com/SharpAdb/AdvancedSharpAdbClient/blob/main/AdvancedSharpAdbClient/DeviceCommands/DeviceClient.cs#L263) from [`AdbClient`](https://github.com/SharpAdb/AdvancedSharpAdbClient/blob/main/AdvancedSharpAdbClient/AdbClient.cs#L33) or [`IsAppRunningAsync`](https://github.com/SharpAdb/AdvancedSharpAdbClient/blob/main/AdvancedSharpAdbClient/DeviceCommands/DeviceClient.cs#L234) and [`IsAppInForegroundAsync`](https://github.com/SharpAdb/AdvancedSharpAdbClient/blob/main/AdvancedSharpAdbClient/DeviceCommands/DeviceClient.cs#L249) from [`DeviceClient`](https://github.com/SharpAdb/AdvancedSharpAdbClient/blob/main/AdvancedSharpAdbClient/DeviceCommands/DeviceClient.cs#L22):
 ```csharp
 ....
 // Get app status using AdbClient
@@ -76,10 +76,10 @@ bool isAppForeground = await deviceClient.IsAppInForegroundAsync("com.android.ap
 ```
 
 ## Push and pull files
-You can push and pull files to `Stream` such as `MemoryStream` or `FileStream` using `PullAsync` and `PushAsync` methods.
+You can push and pull files to [`Stream`](https://learn.microsoft.com/en-us/dotnet/api/system.io.stream) such as [`MemoryStream`](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream) or [`FileStream`](https://learn.microsoft.com/en-en/dotnet/api/system.io.filestream) using [`PullAsync`](https://github.com/SharpAdb/AdvancedSharpAdbClient/blob/main/AdvancedSharpAdbClient/SyncService.cs#L247) and [`PushAsync`](https://github.com/SharpAdb/AdvancedSharpAdbClient/blob/main/AdvancedSharpAdbClient/SyncService.cs#L149) methods.
 
 #### Using SyncService
-Use `SyncService` to push and pull files.
+Use [`SyncService`](https://github.com/SharpAdb/AdvancedSharpAdbClient/blob/main/AdvancedSharpAdbClient/SyncService.cs#L45) to push and pull files.
 
 Pull files:
 ```csharp
@@ -110,7 +110,7 @@ using (SyncService service = new SyncService(device))
 ```
 
 #### Using AdbClient
-Use `AdbClient` to push and pull files.
+Use [`AdbClient`](https://github.com/SharpAdb/AdvancedSharpAdbClient/blob/main/AdvancedSharpAdbClient/AdbClient.cs#L33) to push and pull files.
 
 Pull:
 ```csharp
@@ -134,7 +134,7 @@ using (FileStream stream = File.OpenRead(@"C:\MyFile.txt"))
 
 
 ## Run shell commands
-Use `ExecuteRemoteCommandAsync` to execute your own custom shell commands and `IShellOutputReceiver` to receive result:
+Use [`ExecuteRemoteCommandAsync`](https://github.com/SharpAdb/AdvancedSharpAdbClient/blob/main/AdvancedSharpAdbClient/AdbClient.cs#L345) to execute your own custom shell commands and [`IShellOutputReceiver`](https://github.com/SharpAdb/AdvancedSharpAdbClient/blob/main/AdvancedSharpAdbClient/Receivers/IShellOutputReceiver.cs#L14) to receive result:
 ```csharp
 ....
 IShellOutputReceiver receiver = new ConsoleOutputReceiver();
@@ -151,7 +151,7 @@ await client.ExecuteShellCommandAsync(device, "pm reset-permissions -p com.andro
 Forward connection allows you to redirect connection from a port on the local device to a port on the mobile device and back again.
 
 #### Forward local to remote connection
-To forward local to remote port device use `CreateForwardAsync` method:
+To forward local to remote port device use [`CreateForwardAsync`](https://github.com/SharpAdb/AdvancedSharpAdbClient/blob/main/AdvancedSharpAdbClient/AdbClient.cs#L216) method:
 ```csharp
 ....
 // Forward local TCP port to device port
@@ -161,7 +161,7 @@ int udpres = await client.CreateForwardAsync(device, "udp:6123", "udp:7123", tru
 ```
 
 #### Forward from remote to local connection
-To forward remote to local port use `CreateReverseForwardAsync` method:
+To forward remote to local port use [`CreateReverseForwardAsync`](https://github.com/SharpAdb/AdvancedSharpAdbClient/blob/main/AdvancedSharpAdbClient/AdbClient.cs#L232) method:
 ```csharp
 ....
 // Forward from remote to local TCP port
@@ -171,7 +171,7 @@ int udpres = await client.CreateReverseForwardAsync(device, "udp:7123", "udp:612
 ```
 
 #### Remove forward
-To remove forwards use `RemoveAllForwardsAsync`, `RemoveAllReverseForwardsAsync`, `RemoveForwardAsync` and `RemoveReverseForwardAsync` methods:
+To remove forwards use [`RemoveAllForwardsAsync`](https://github.com/SharpAdb/AdvancedSharpAdbClient/blob/main/AdvancedSharpAdbClient/AdbClient.cs#L284), [`RemoveAllReverseForwardsAsync`](https://github.com/SharpAdb/AdvancedSharpAdbClient/blob/main/AdvancedSharpAdbClient/AdbClient.cs#L262), [`RemoveForwardAsync`](https://github.com/SharpAdb/AdvancedSharpAdbClient/blob/main/AdvancedSharpAdbClient/AdbClient.cs#L274) and [`RemoveReverseForwardAsync`](https://github.com/SharpAdb/AdvancedSharpAdbClient/blob/main/AdvancedSharpAdbClient/AdbClient.cs#L250) methods:
 ```csharp
 ....
 // Remove all forwards from the device

@@ -56,7 +56,7 @@ deviceMonitor.DeviceChanged += (sender, e) => Trace.WriteLine($"Device state cha
 await deviceMonitor.StartAsync();
 ```
 
-`DeviceMonitor` returns `DeviceData` that doesn't have a device model and name, and also can't be used for device automation. To obtain a `Device` that can be used further use the following code:
+[`DeviceMonitor`](https://github.com/SharpAdb/AdvancedSharpAdbClient/blob/main/AdvancedSharpAdbClient/DeviceMonitor.cs#L39) returns [`DeviceData`](https://github.com/SharpAdb/AdvancedSharpAdbClient/blob/main/AdvancedSharpAdbClient/Models/DeviceData.cs#L19) that doesn't have a device model and name, and also can't be used for device automation. To obtain a [`DeviceData`](https://github.com/SharpAdb/AdvancedSharpAdbClient/blob/main/AdvancedSharpAdbClient/Models/DeviceData.cs#L19) that can be used further use the following code:
 ```csharp
 AdbClient client = new AdbClient();
 await using DeviceMonitor deviceMonitor = new(new AdbSocket(new IPEndPoint(IPAddress.Loopback, AdbClient.AdbServerPort)));
