@@ -8,3 +8,4 @@
     - [Working with lib](working)
 - Reference
     - [Screen automation](screen)
+    - [Device commands](device)
