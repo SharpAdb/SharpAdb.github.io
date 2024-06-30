@@ -5,7 +5,7 @@
 You can use several ways to install and uninstall applications
 
 #### Using PackageManager
-You can use `InstallPackageAsync` and `UninstallPackageAsync` methods from `PackageManager` to install and uninstall apps.
+You can use `InstallPackageAsync` and `UninstallPackageAsync` methods from `PackageManager` to install and uninstall apps:
 ```csharp
 ....
 PackageManager manager = new PackageManager(client, device);
@@ -16,7 +16,7 @@ await manager.UninstallPackageAsync("com.android.app");
 ```
 
 #### Using AdbClient
-Or you can use `InstallAsync` and `UninstallAsync` methods from `AdbClient` to install and uninstall apps.
+Or you can use `InstallAsync` and `UninstallAsync` methods from `AdbClient` to install and uninstall apps:
 ```csharp
 ....
 using (FileStream stream = File.OpenRead("Application.apk"))
@@ -29,7 +29,7 @@ using (FileStream stream = File.OpenRead("Application.apk"))
 ```
 
 #### Install multiple applications using PackageManager
-To install multiple packages you need to use `InstallMultiplePackageAsync` method from `PackageManager`.
+To install multiple packages you need to use `InstallMultiplePackageAsync` method from `PackageManager`:
 ```csharp
 ....
 PackageManager manager = new PackageManager(client, device);
@@ -40,7 +40,7 @@ await manager.InstallMultiplePackageAsync(new[] { @"C:\split_3.apk", @"C:\split_
 ```
 
 #### Install multiple applications using AdbClient
-Or you can use `InstallMultipleAsync` from `AdbClient` to install multiple applications.
+Or you can use `InstallMultipleAsync` from `AdbClient` to install multiple applications:
 ```csharp
 ....
 // Install split app whith base app
@@ -54,7 +54,7 @@ await client.InstallMultipleAsync(device, new[] { File.OpenRead("split_3.apk"), 
 
 `AdvancedSharpAdbClient` uses [monkeyrunner](https://developer.android.com/studio/test/monkeyrunner) to start and `force-stop` to stop applications.
 
-You can use `StartAppAsync` and `StopAppAsync` from `AdbClient` to start and stop applications.
+You can use `StartAppAsync` and `StopAppAsync` from `AdbClient` to start and stop applications:
 ```csharp
 ....
 // Start app 
@@ -63,6 +63,17 @@ await client.StartAppAsync(device, "com.android.app");
 await client.StopAppAsync(device, "com.android.app");
 ```
 
+To check app status use `GetAppStatusAsync` from `AdbClient` or `IsAppRunningAsync` and `IsAppInForegroundAsync` from `DeviceClient`:
+```csharp
+....
+// Get app status using AdbClient
+AppStatus appStatus= await client.GetAppStatusAsync(device, "com.android.app");
+
+// Get app status using DeviceClient
+DeviceClient deviceClient = device.CreateDeviceClient();
+bool isAppRunning = await deviceClient.IsAppRunningAsync("com.android.app");
+bool isAppForeground = await deviceClient.IsAppInForegroundAsync("com.android.app");
+```
 
 ## Push and pull files
 You can push and pull files to `Stream` such as `MemoryStream` or `FileStream` using `PullAsync` and `PushAsync` methods.
@@ -113,6 +124,7 @@ using (FileStream stream = File.OpenWrite(@"C:\MyFile.txt"))
 
 Push:
 ```csharp
+....
 using (FileStream stream = File.OpenRead(@"C:\MyFile.txt"))
 {
     // Push data to device
@@ -122,7 +134,7 @@ using (FileStream stream = File.OpenRead(@"C:\MyFile.txt"))
 
 
 ## Run shell commands
-Use `ExecuteRemoteCommandAsync` to execute your own custom shell commands and `IShellOutputReceiver` to receive result.
+Use `ExecuteRemoteCommandAsync` to execute your own custom shell commands and `IShellOutputReceiver` to receive result:
 ```csharp
 ....
 IShellOutputReceiver receiver = new ConsoleOutputReceiver();
@@ -151,8 +163,23 @@ int udpres = await client.CreateForwardAsync(device, "udp:6123", "udp:7123", tru
 #### Forward from remote to local connection
 To forward remote to local port use `CreateReverseForwardAsync` method:
 ```csharp
+....
 // Forward from remote to local TCP port
 int tcpres = await client.CreateReverseForwardAsync(device, "tcp:7123", "tcp:6123", true);
 // Forward from remote to local UDP port
 int udpres = await client.CreateReverseForwardAsync(device, "udp:7123", "udp:6123", true);
+```
+
+#### Remove forward
+To remove forwards use `RemoveAllForwardsAsync`, `RemoveAllReverseForwardsAsync`, `RemoveForwardAsync` and `RemoveReverseForwardAsync` methods:
+```csharp
+....
+// Remove all forwards from the device
+await client.RemoveAllForwardsAsync(device);
+// Remove all reverse forwards from the device
+await client.RemoveAllReverseForwardsAsync(device);
+// Remove forward from specified port
+await client.RemoveForwardAsync(device, 6123);
+// Remove reverse forward from specified port
+await client.RemoveReverseForwardAsync(device, "tcp:7123");
 ```

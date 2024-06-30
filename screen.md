@@ -79,7 +79,7 @@ await element.SendTextAsync("hello world!");
 !> This method does not support unicode characters (such as cyryllic and chinese).
 
 #### Using ADBKeyBoard
-This method supports unicode characters, but it need [ADBKeyBoard](https://github.com/senzhk/ADBKeyBoard) to be installed on the device.
+This method supports unicode characters, but it need [ADBKeyBoard](https://github.com/senzhk/ADBKeyBoard) to be installed on the device:
 ```csharp
 ...
 // Send unicode text via ADBKeyBoard
