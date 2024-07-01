@@ -1,37 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>AdvancedSharpAdbClient</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/style.min.css" title="docsify-darklight-theme" type="text/css"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SharpAdb Wiki</title>
+  <meta name="description" content="The wiki of SharpAdb Project">
+  <base href="/" />
+  <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/style.min.css"
+    title="docsify-darklight-theme" />
+  <style>
+    @media screen and (max-width: 768px) {
+      #docsify-darklight-theme {
+        left: auto;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <div id="app"></div>
+  <div id="app">Loading...</div>
   <script>
     window.$docsify = {
+      auto2top: true,
+      basePath: '/source/',
+      executeScript: true,
+      homepage: 'introduction.md',
       loadSidebar: true,
       name: 'AdvancedSharpAdbClient',
-      homepage: 'introduction.md',
-      auto2top: true,
+      nativeEmoji: true,
       search: {
         depth: 3,
         noData: 'No results!',
         placeholder: 'Search...'
       },
       darklightTheme: {
-        defaultTheme : 'dark',
+        defaultTheme: 'dark',
       }
     }
   </script>
-  
+
   <!-- Docsify v4 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/index.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-csharp.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-powershell.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify-pagination@2/dist/docsify-pagination.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-darklight-theme/dist/index.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-csharp.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-powershell.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/search.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
 </body>
+
 </html>

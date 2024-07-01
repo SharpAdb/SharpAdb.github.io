@@ -1,7 +1,7 @@
 - About
     - [Introduction](introduction)
     - [Consulting and Support](support)
-    - [Licence](licence)
+    - [Licence](licences)
 - Getting started
     - [Installation](installation)
     - [Connecting to device](connecting)
