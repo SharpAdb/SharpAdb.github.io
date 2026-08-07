@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SharpAdb Wiki</title>
+  <meta name="description" content="The wiki of SharpAdb Projects">
+  <base href="/legacy.html" />
+  <link rel="apple-touch-icon" sizes="180x180"
+    href="https://github.com/SharpAdb/SharpAdb.github.io/assets/27689196/958d3288-c356-4793-b78a-57d0f6527bae">
+  <link rel="icon" type="image/png" sizes="32x32"
+    href="https://github.com/SharpAdb/SharpAdb.github.io/assets/27689196/db268f7a-3ddc-4a4b-a362-df6a4307aaea">
+  <link rel="icon" type="image/png" sizes="16x16"
+    href="https://github.com/SharpAdb/SharpAdb.github.io/assets/27689196/918e6bfe-ae35-4588-87c4-a118500bbc16">
+  <link rel="mask-icon"
+    href="https://github.com/SharpAdb/SharpAdb.github.io/assets/27689196/f6d2261d-0ce2-4cc8-8246-bbccc0705c66"
+    color="#202020">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-darklight-theme/dist/style.min.css"
+    title="docsify-darklight-theme" />
+  <style>
+    @media screen and (max-width: 768px) {
+      #docsify-darklight-theme {
+        left: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">Loading...</div>
+  <script>
+    window.$docsify = {
+      alias: {
+        '/.*/_sidebar.md': './_sidebar.md'
+      },
+      auto2top: true,
+      basePath: './source/',
+      executeScript: true,
+      homepage: 'introduction.md',
+      loadSidebar: true,
+      name: 'AdvancedSharpAdbClient',
+      nativeEmoji: true,
+      search: {
+        depth: 3,
+        noData: 'No results!',
+        placeholder: 'Search...'
+      },
+      darklightTheme: {
+        defaultTheme: 'dark',
+      }
+    }
+  </script>
+
+  <!-- Docsify v4 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-darklight-theme/dist/index.min.js"></script>
+
+  <!-- Prism.JS -->
+  <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-bash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-csharp.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-powershell.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.min.js"></script>
+
+  <!--  Fallback -->
+  <script>
+    if (typeof CSS === "undefined" || typeof CSS.supports === "undefined" || !CSS.supports("--a", 0)) {
+      function addScript(src) {
+        var script = document.createElement("script");
+        script.src = src;
+        var parentNode = document.head || document.scripts[0].parentNode;
+        parentNode.appendChild(script);
+        return script;
+      }
+      var script = addScript("https://cdn.jsdelivr.net/npm/css-vars-ponyfill");
+      script.onload = function () {
+        cssVars({
+          variables: {
+            "--siteFont": "PT Sans",
+            "--codeFontFamily": "Roboto Mono, Monaco, courier, monospace",
+            "--bodyFontSize": "17px",
+            "--accent": "#42b983",
+            "--theme-color": "#42b983",
+            "--toogleBackground": "#091a28",
+            "--background": "#ffffff",
+            "--textColor": "#34495e",
+            "--codeTextColor": "#525252",
+            "--codeBackgroundColor": "#f8f8f8",
+            "--borderColor": "rgba(0, 0, 0, 0.07)",
+            "--blockQuoteColor": "#858585",
+            "--highlightColor": "#d22778",
+            "--sidebarSublink": "#505d6b",
+            "--codeTypeColor": "#091a28",
+            "--coverBackground": "linear-gradient(to left bottom, hsl(118, 100%, 85%) 0%, hsl(181, 100%, 85%) 100%)",
+            "--toogleImage": "url(https://cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/icons/moon.svg)"
+          },
+          watch: true
+        });
+      };
+    }
+  </script>
+</body>
+
+</html>
