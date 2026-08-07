@@ -16,15 +16,9 @@
   <link rel="mask-icon"
     href="https://github.com/SharpAdb/SharpAdb.github.io/assets/27689196/f6d2261d-0ce2-4cc8-8246-bbccc0705c66"
     color="#202020">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-darklight-theme/dist/style.min.css"
-    title="docsify-darklight-theme" />
-  <style>
-    @media screen and (max-width: 768px) {
-      #docsify-darklight-theme {
-        left: auto;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify/dist/themes/core.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify/dist/themes/addons/core-dark.min.css"
+    media="(prefers-color-scheme: dark)" />
 </head>
 
 <body>
@@ -37,22 +31,14 @@
       homepage: 'introduction.md',
       loadSidebar: true,
       name: 'AdvancedSharpAdbClient',
-      nativeEmoji: true,
-      search: {
-        depth: 3,
-        noData: 'No results!',
-        placeholder: 'Search...'
-      },
-      darklightTheme: {
-        defaultTheme: 'dark',
-      }
+      nativeEmoji: true
     }
   </script>
 
   <!-- Docsify v4 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify-darklight-theme/dist/index.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify/dist/plugins/search.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
   
   <!-- Prism.JS -->
   <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-bash.min.js"></script>
